@@ -1,0 +1,6 @@
+node-modules
+.git
+.env
+.vscode
+dist
+Dockerfile
