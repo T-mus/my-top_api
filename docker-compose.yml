@@ -14,10 +14,18 @@ services:
             - ./mongo-data:/data/db
         command: --auth --wiredTigerCacheSizeGB 1.5
     app:
+        build: .
         image: my-top_api
         container_name: my-top_api
         restart: always
         ports:
             - 3000:3000
+        environment:
+            MONGO_LOGIN: admin
+            MONGO_PASSWORD: admin
+            MONGO_HOST: mongo
+            MONGO_PORT: 27017
+            MONGO_AUTH_DATABASE: admin
+            JWT_SECRET: jwt-secret
         depends_on:
             - mongo
