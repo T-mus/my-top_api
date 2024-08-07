@@ -8,7 +8,7 @@ RUN npm install
 
 COPY . .
 
-RUN npm build
+RUN npm run build
 RUN npm prune --production
 
 ENV MONGO_LOGIN=admin
